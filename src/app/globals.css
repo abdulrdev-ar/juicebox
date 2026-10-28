@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+:root {
+  --background-dark: #0c0d10;
+  --background-medium: rgba(255, 255, 255, 0.6);
+  --background-button: rgba(255, 255, 255, 0.1);
+  --background-glass: rgba(255, 255, 255, 0.05);
+  --glow-inner: #222737;
+  --glow-middle: #171a24;
+
+  --brand-primary-light: #cdaaff;
+  --brand-action: #fafafa;
+  --brand-dot-active: #b488f2;
+  --brand-gradient: linear-gradient(
+    90deg,
+    #fabbff 0%,
+    #b179ff 35%,
+    #6dddff 83%
+  );
+
+  --type-light-heading: #fafafa;
+  --type-dark-heading: #0c0d10;
+  --type-captions: rgba(255, 255, 255, 0.6);
+  --type-muted: rgba(250, 250, 250, 0.5);
+  --type-error: #ffa3a3;
+
+  --line-stroke-medium: rgba(255, 255, 255, 0.6);
+
+  --size-caption: 12px;
+  --size-body: 16px;
+  --size-question: 19px;
+  --size-h4: 22px;
+  --size-h2: 28px;
+
+  --module-x: 20px;
+  --module-y-sm: 24px;
+  --module-y: 48px;
+
+  --button-radius: 19px;
+  --input-radius: 18px;
+
+  --page-max: 480px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --size-question: 22px;
+    --size-h4: 26px;
+    --size-h2: 36px;
+    --module-x: 32px;
+    --page-max: 640px;
+  }
+}
+
+@theme inline {
+  --color-surface: var(--background-dark);
+  --color-glass: var(--background-glass);
+  --color-medium: var(--background-medium);
+  --color-primary-light: var(--brand-primary-light);
+  --color-action: var(--brand-action);
+  --color-heading: var(--type-light-heading);
+  --color-heading-dark: var(--type-dark-heading);
+  --color-dim: var(--type-captions);
+  --color-muted: var(--type-muted);
+  --color-error: var(--type-error);
+  --color-stroke: var(--line-stroke-medium);
+
+  --font-heading: var(--font-bagoss);
+  --font-body: var(--font-sohne);
+
+  --text-caption: var(--size-caption);
+  --text-body: var(--size-body);
+  --text-question: var(--size-question);
+  --text-h4: var(--size-h4);
+  --text-h2: var(--size-h2);
+
+  --spacing-module-x: var(--module-x);
+  --spacing-module-y-sm: var(--module-y-sm);
+  --spacing-module-y: var(--module-y);
+
+  --radius-button: var(--button-radius);
+  --radius-input: var(--input-radius);
+}
+
+@utility bg-glow-top {
+  background:
+    radial-gradient(
+        369px 498px at 50% 29px,
+        var(--glow-inner) 0%,
+        var(--glow-middle) 50%,
+        var(--background-dark) 100%
+      )
+      no-repeat,
+    var(--background-dark);
+}
+
+@utility bg-glow-center {
+  background:
+    radial-gradient(
+        202px 274px at 50% 254px,
+        var(--glow-inner) 0%,
+        var(--glow-middle) 50%,
+        var(--background-dark) 100%
+      )
+      no-repeat,
+    var(--background-dark);
+}
+
+@layer base {
+  body {
+    background-color: var(--background-dark);
+    color: var(--type-light-heading);
+    font-family: var(--font-sohne), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--brand-primary-light);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .js [data-reveal] {
+      opacity: 0;
+    }
+  }
+}

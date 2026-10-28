@@ -1,0 +1,28 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": [
+    "typescript",
+    "unicorn",
+    "oxc",
+    "react",
+    "nextjs",
+    "import",
+    "jsx-a11y"
+  ],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+    "perf": "warn"
+  },
+  "ignorePatterns": [".next", "node_modules", "graphify-out"],
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "import/no-unassigned-import": [
+      "warn",
+      {
+        "allow": ["**/*.css", "swiper/css"]
+      }
+    ],
+    "react/no-array-index-key": "off"
+  }
+}
